@@ -133,4 +133,4 @@ if not DEBUG:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_HOSTS=['web-production-17d9.up.railway.app']
+ALLOWED_HOSTS=['localhost','web-production-17d9.up.railway.app']
