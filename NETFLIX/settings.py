@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 import os
+import dj_database_url
 
 
 # Quick-start development settings - unsuitable for production
@@ -81,8 +82,13 @@ WSGI_APPLICATION = 'NETFLIX.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'login.bd',
+
+        dj_database_url.config()
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': 'login.bd',
+
+        
+
     }
 }
 
